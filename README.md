@@ -4,5 +4,5 @@
 Gradle依赖
 
 ```
-compile 'com.crazysunj:itemdecoration:0.2.0'
+compile 'com.crazysunj:itemdecoration:0.2.1'
 ```

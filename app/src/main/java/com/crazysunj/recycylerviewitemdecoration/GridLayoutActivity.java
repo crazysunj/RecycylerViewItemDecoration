@@ -64,7 +64,7 @@ public class GridLayoutActivity extends AppCompatActivity {
                     .setBottomMargin(bottom)
                     .build();
         }
-        recyclerview.setLayoutManager(new GridLayoutManager(this, 4, orientation, false));
+        recyclerview.setLayoutManager(new GridLayoutManager(this, 3, orientation, false));
         recyclerview.addItemDecoration(itemDecoration);
         recyclerview.setAdapter(adapter);
     }

@@ -63,7 +63,7 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
     }
 
     private void drawHorizontal(Canvas c, RecyclerView parent, int spanCount, boolean isVertical, boolean isGrid) {
-        int childCount = parent.getChildCount();
+        final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
 
             final View child = parent.getChildAt(i);
@@ -94,8 +94,8 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
                         //第一列
                         leftMargin = mBuilder.leftMargin;
                     }
-
-                    if (i >= (childCount - childCount % spanCount)) {
+                    int remainder = childCount % spanCount;
+                    if (i >= (childCount - remainder - (remainder == 0 ? spanCount : 0))) {
                         rightMargin = mBuilder.rightMargin;//最后一列
                     }
                 }
@@ -138,8 +138,8 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
                         //第一行
                         topMargin = mBuilder.topMargin;
                     }
-
-                    if (i >= (childCount - childCount % spanCount)) {
+                    int remainder = childCount % spanCount;
+                    if (i >= (childCount - remainder - (remainder == 0 ? spanCount : 0))) {
                         bottomMargin = mBuilder.bottomMargin;//最后一行
                     }
                 } else {
@@ -162,13 +162,28 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         int itemPosition = parent.getChildAdapterPosition(view);
         int childCount = parent.getAdapter().getItemCount();
-        if (ItemUtil.isLastRaw(parent, itemPosition, childCount, view)) {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
-        } else if (ItemUtil.isLastColumn(parent, itemPosition, childCount, view)) {
-            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
-        } else {
-            outRect.set(0, 0, mDivider.getIntrinsicWidth(), mDivider.getIntrinsicHeight());
+        int right = 0;
+        int bottom = 0;
+        boolean lastRaw = ItemUtil.isLastRaw(parent, itemPosition, childCount, view);
+        if (lastRaw) {
+            right = mDivider.getIntrinsicWidth();
         }
+
+        boolean lastColumn = ItemUtil.isLastColumn(parent, itemPosition, childCount, view);
+        if (lastColumn) {
+            bottom = mDivider.getIntrinsicHeight();
+        }
+
+        if (!lastColumn && !lastRaw) {
+            right = mDivider.getIntrinsicWidth();
+            bottom = mDivider.getIntrinsicHeight();
+        }
+
+        if (lastRaw && lastColumn) {
+            right = 0;
+            bottom = 0;
+        }
+        outRect.set(0, 0, right, bottom);
     }
 
     public static class Builder {

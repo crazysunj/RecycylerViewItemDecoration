@@ -39,7 +39,8 @@ public class ItemUtil {
                     return true;
                 }
             } else {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向横是否是最后一列
                 if (position >= childCount) {
                     return true;
@@ -54,7 +55,8 @@ public class ItemUtil {
                 final StaggeredGridLayoutManager.LayoutParams slp = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
                 return slp.getSpanIndex() == spanCount - 1;
             } else {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向横是否是最后一列
                 if (position >= childCount) {
                     return true;
@@ -84,7 +86,8 @@ public class ItemUtil {
                     return true;
                 }
             } else {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向横是否是最后一列
                 if (position >= childCount) {
                     return true;
@@ -95,7 +98,8 @@ public class ItemUtil {
                 final StaggeredGridLayoutManager.LayoutParams slp = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
                 return slp.getSpanIndex() == spanCount - 1;
             } else {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向横是否是最后一列
                 if (position >= childCount) {
                     return true;
@@ -119,7 +123,8 @@ public class ItemUtil {
     public static boolean isLastRaw(int position, int childCount, int spanCount, boolean isVertical, boolean isGrid, View view) {
         if (isGrid) {
             if (isVertical) {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向竖是否是最后一行
                 if (position >= childCount) {
                     return true;
@@ -151,7 +156,8 @@ public class ItemUtil {
             int spanCount = manager.getSpanCount();
             int orientation = manager.getOrientation();
             if (orientation == LinearLayoutManager.VERTICAL) {
-                childCount = childCount - childCount % spanCount;
+                int remainder = childCount % spanCount;
+                childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向竖是否是最后一行
                 if (position >= childCount) {
                     return true;
