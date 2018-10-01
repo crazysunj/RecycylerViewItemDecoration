@@ -28,7 +28,7 @@ ext {
     userOrg = 'twsunj'
     groupId = 'com.crazysunj'
     uploadName = 'ItemDecoration'
-    publishVersion = '0.2.1'
+    publishVersion = '0.3.0'
     desc = 'ItemDecoration For Android'
     website = 'https://github.com/crazysunj/ItemDecoration'
     licences = ['Apache-2.0']
