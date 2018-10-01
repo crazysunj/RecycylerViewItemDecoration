@@ -46,6 +46,7 @@ public class GridLayoutActivity extends AppCompatActivity {
         RecyclerView.ItemDecoration itemDecoration;
         if (type == SPACE) {
             itemDecoration = new GridLayoutSpaceItemDecoration.Builder()
+                    .setSpaceSize(30)
                     .build();
         } else if (type == DIVIDER) {
             itemDecoration = new GridLayoutDividerItemDecoration.Builder()

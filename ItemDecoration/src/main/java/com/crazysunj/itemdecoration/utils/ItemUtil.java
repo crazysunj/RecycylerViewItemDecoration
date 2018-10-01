@@ -143,19 +143,19 @@ public class ItemUtil {
     /**
      * 判断指定位置的Item是否是最后一行
      *
-     * @param parent     RecyclerView
-     * @param position   位置
-     * @param childCount 条目数
+     * @param parent   RecyclerView
+     * @param position 位置
      * @return true为最后一行，反之不是
      */
-    public static boolean isLastRaw(RecyclerView parent, int position, int childCount, View view) {
+    public static boolean isLastRaw(RecyclerView parent, int position) {
 
         RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
         if (layoutManager instanceof GridLayoutManager) {
             GridLayoutManager manager = (GridLayoutManager) layoutManager;
             int spanCount = manager.getSpanCount();
             int orientation = manager.getOrientation();
-            if (orientation == LinearLayoutManager.VERTICAL) {
+            int childCount = manager.getItemCount();
+            if (orientation == GridLayoutManager.VERTICAL) {
                 int remainder = childCount % spanCount;
                 childCount = childCount - remainder - (remainder == 0 ? spanCount : 0);
                 // 判断方向竖是否是最后一行

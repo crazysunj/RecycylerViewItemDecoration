@@ -180,6 +180,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static String[] getList() {
-        return "天生我材必有用千金散尽还复来啊".split("");
+        return "天生我材必有用千金散尽还复来".split("");
     }
 }

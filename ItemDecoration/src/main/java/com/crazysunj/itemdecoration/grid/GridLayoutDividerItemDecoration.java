@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +46,7 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
     }
 
     @Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         RecyclerView.LayoutManager layoutManager = parent.getLayoutManager();
         if (layoutManager instanceof GridLayoutManager) {
             GridLayoutManager manager = (GridLayoutManager) layoutManager;
@@ -159,12 +160,12 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
 
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         int itemPosition = parent.getChildAdapterPosition(view);
         int childCount = parent.getAdapter().getItemCount();
         int right = 0;
         int bottom = 0;
-        boolean lastRaw = ItemUtil.isLastRaw(parent, itemPosition, childCount, view);
+        boolean lastRaw = ItemUtil.isLastRaw(parent, itemPosition);
         if (lastRaw) {
             right = mDivider.getIntrinsicWidth();
         }

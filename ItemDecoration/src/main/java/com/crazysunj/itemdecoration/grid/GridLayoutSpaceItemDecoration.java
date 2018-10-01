@@ -1,6 +1,7 @@
 package com.crazysunj.itemdecoration.grid;
 
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -21,10 +22,13 @@ public class GridLayoutSpaceItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         int itemPosition = parent.getChildAdapterPosition(view);
-        int size = ViewUtil.dp2px(parent.getContext(), mSpaceSize);
-        outRect.set(ItemUtil.isFirstColumn(parent, itemPosition, view) ? size : 0, ItemUtil.isFirstRaw(parent, itemPosition, view) ? size : 0, size, size);
+        int size = (int) (ViewUtil.dp2px(parent.getContext(), mSpaceSize) * 1.0f / 2);
+        outRect.set(ItemUtil.isFirstColumn(parent, itemPosition, view) ? size * 2 : size,
+                ItemUtil.isFirstRaw(parent, itemPosition, view) ? size * 2 : size,
+                ItemUtil.isLastColumn(parent, itemPosition, parent.getChildCount(), view) ? size * 2 : size,
+                ItemUtil.isLastRaw(parent, itemPosition) ? size * 2 : size);
     }
 
     public static class Builder {
