@@ -1,12 +1,13 @@
 package com.crazysunj.itemdecoration.linear;
 
 import android.graphics.Rect;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.crazysunj.itemdecoration.Orientation;
 import com.crazysunj.itemdecoration.utils.ViewUtil;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 /**

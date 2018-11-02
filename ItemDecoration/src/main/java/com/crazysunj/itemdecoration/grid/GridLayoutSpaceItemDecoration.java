@@ -1,12 +1,13 @@
 package com.crazysunj.itemdecoration.grid;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.crazysunj.itemdecoration.utils.ItemUtil;
 import com.crazysunj.itemdecoration.utils.ViewUtil;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * author: sunjian

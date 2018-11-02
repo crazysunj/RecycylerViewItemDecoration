@@ -2,11 +2,12 @@ package com.crazysunj.multitypeadapter.sticky;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.support.v4.util.LongSparseArray;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.collection.LongSparseArray;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * 加强版,对GridLayoutManager支持有缺陷，会使item移动，可使RecyclerView移动到当前刷新类型item可以避免

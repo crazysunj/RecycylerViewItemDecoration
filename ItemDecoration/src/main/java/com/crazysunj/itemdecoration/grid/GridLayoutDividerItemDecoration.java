@@ -5,14 +5,14 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.crazysunj.itemdecoration.utils.ItemUtil;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 /**
  * author: sunjian
@@ -51,13 +51,13 @@ public class GridLayoutDividerItemDecoration extends RecyclerView.ItemDecoration
         if (layoutManager instanceof GridLayoutManager) {
             GridLayoutManager manager = (GridLayoutManager) layoutManager;
             int spanCount = manager.getSpanCount();
-            boolean isVertical = manager.getOrientation() == LinearLayoutManager.VERTICAL;
+            boolean isVertical = manager.getOrientation() == RecyclerView.VERTICAL;
             drawHorizontal(c, parent, spanCount, isVertical, true);
             drawVertical(c, parent, spanCount, isVertical, true);
         } else if (layoutManager instanceof StaggeredGridLayoutManager) {
             StaggeredGridLayoutManager manager = (StaggeredGridLayoutManager) layoutManager;
             int spanCount = manager.getSpanCount();
-            boolean isVertical = manager.getOrientation() == LinearLayoutManager.VERTICAL;
+            boolean isVertical = manager.getOrientation() == RecyclerView.VERTICAL;
             drawHorizontal(c, parent, spanCount, isVertical, false);
             drawVertical(c, parent, spanCount, isVertical, false);
         }

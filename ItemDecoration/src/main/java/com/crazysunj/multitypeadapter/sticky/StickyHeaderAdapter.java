@@ -1,7 +1,8 @@
 package com.crazysunj.multitypeadapter.sticky;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * 粘性头部适配器接口
