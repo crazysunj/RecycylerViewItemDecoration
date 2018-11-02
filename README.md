@@ -4,5 +4,8 @@
 Gradle依赖
 
 ```
-compile 'com.crazysunj:itemdecoration:0.2.1'
+使用androidx的朋友
+implementation 'com.crazysunj:itemdecoration:0.3.1-x'
+非androidx的朋友
+implementation 'com.crazysunj:itemdecoration:0.3.0'
 ```
